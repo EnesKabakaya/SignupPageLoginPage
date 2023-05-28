@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/loginPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+        integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
+        crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <span>Login To Your Account</span>
+        </div>
+        <form action="#" id="form">
+            <div class="form-control">
+                <label>Email</label>
+                <input type="text" placeholder="Email" id="email">
+                <i class="fa-solid pass-icon fa-circle-check" id="success-icon"></i>
+                <i class="fa-solid pass-icon fa-circle-exclamation" id="error-icon"></i>
+                <small class="error-message">Error Message</small>
+            </div>
+            <div class="form-control">
+                <label>Password</label>
+                <input type="password" placeholder="Password" id="password" autocomplete="off">
+                <i class="fa-solid pass-icon fa-circle-check" id="success-icon"></i>
+                <i class="fa-solid pass-icon fa-circle-exclamation" id="error-icon"></i>
+                <button id="show-password" class="fa-solid fa-eye" type="button"></button>
+                <small class="error-message">Error Message</small>
+            </div>
+            <div class="form-control">
+                <button class="send-button">Submit</button>
+            </div>
+        </form>
+        <div class="create-account">
+            <span>Already a Member <a href="signupPage.html">Click Here</a></span>
+        </div>
+    </div>
+    <script src="js/loginPage.js"></script>
+</body>
+
+</html>

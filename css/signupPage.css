@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    text-decoration: none;
 }
 
 body {
@@ -38,12 +39,15 @@ body {
 .container form {
     padding: 20px 40px;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .container form .form-control {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    height: auto;
     position: relative;
 }
 
@@ -67,7 +71,7 @@ body {
     margin-top: 5px;
     font-weight: 600;
     font-size: 14px;
-    color: red;
+    color: #e74c3c;
 }
 
 .container form .form-control i {
@@ -76,23 +80,22 @@ body {
     transform: translate(0, -50%);
     right: 10px;
     font-size: 1.2rem;
-    display: none;
+    visibility: hidden;
 }
 
 .container form .form-control #show-password {
-    display: block;
     cursor: pointer;
     position: absolute;
+    top: 25px;
     right: 0px;
     background-color: transparent;
     height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 40px;
     border: 2px solid #e0d5d5;
     border-left: none;
     border-radius: 0 3px 3px 0;
+    outline: none;
+    font-size: 1.1rem;
 }
 
 .container form .form-control #password {
@@ -103,16 +106,15 @@ body {
     right: 50px;
 }
 
-
 .container form .form-control.error-icon #error-icon {
-    display: block;
+    visibility: visible;
 }
 
 .container form .form-control.success-icon #success-icon {
-    display: block;
+    visibility: visible;
 }
 
-.container form .form-control button {
+.container form .form-control .send-button {
     height: 40px;
     cursor: pointer;
     background-color: #9b59b6;
@@ -148,4 +150,19 @@ body {
 
 .fa-circle-exclamation {
     color: #e74c3c;
+}
+
+.container .create-account {
+    padding: 10px 40px;
+    text-align: center;
+    color: #111;
+}
+
+.container .create-account a {
+    color: #111;
+    transition: all .2s ease-in-out;
+}
+
+.container .create-account a:hover {
+    color: #9b59b6;
 }

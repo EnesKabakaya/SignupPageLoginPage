@@ -26,7 +26,6 @@ form.addEventListener('submit', (e) => {
     let rePasswordValue = rePassword.value;
 
     let user = Array.from(JSON.parse(localStorage.getItem('Users')) || '[]');
-
     for (let i = 0; i < user.length; i++) {
         if (user[i].emailData === emailValue) {
             setErrorFor(email, 'Email already exists');
@@ -38,14 +37,19 @@ form.addEventListener('submit', (e) => {
         }
     }
 
-    if (usernameValue != '' && emailValue != '' && passwordValue != '' && rePassword != '') {
-        let datas = JSON.parse(localStorage.getItem('Users') || '[]');
-        datas.push(setData(usernameValue, emailValue, passwordValue, rePasswordValue));
-        localStorage.setItem('Users', JSON.stringify(datas));
+    if (usernameValue != '' && emailValue != '' && passwordValue != '' && rePasswordValue != '') {
+        if (rePasswordValue === passwordValue) {
+            let datas = JSON.parse(localStorage.getItem('Users') || '[]');
+            datas.push(setData(usernameValue, emailValue, passwordValue, rePasswordValue));
+            localStorage.setItem('Users', JSON.stringify(datas));
+        }
+        else {
+            setErrorFor(rePassword, 'RePassword doesnt match');
+        }
     }
 })
 
-setData = (username, email, password, rePassword) => {
+let setData = (username, email, password, rePassword) => {
     let data = {
         usernameData: username,
         emailData: email,
@@ -87,9 +91,6 @@ let checkInputs = () => {
 
     if (rePasswordValue === '') {
         setErrorFor(rePassword, 'RePassword cannot be blank');
-    }
-    else if (passwordValue != rePasswordValue) {
-        setErrorFor(rePassword, 'RePassword doesnt match');
     }
     else {
         setSuccessFor(rePassword);
