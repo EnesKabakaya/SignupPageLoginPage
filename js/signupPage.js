@@ -42,6 +42,7 @@ form.addEventListener('submit', (e) => {
             let datas = JSON.parse(localStorage.getItem('Users') || '[]');
             datas.push(setData(usernameValue, emailValue, passwordValue, rePasswordValue));
             localStorage.setItem('Users', JSON.stringify(datas));
+            window.location.href = 'loginPage.html';
         }
         else {
             setErrorFor(rePassword, 'RePassword doesnt match');
