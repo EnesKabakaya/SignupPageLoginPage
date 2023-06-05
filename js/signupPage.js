@@ -37,7 +37,7 @@ form.addEventListener('submit', (e) => {
         }
     }
 
-    if (usernameValue != '' && emailValue != '' && passwordValue != '' && rePasswordValue != '') {
+    if (usernameValue !== '' && emailValue !== '' && passwordValue !== '' && rePasswordValue !== '') {
         if (rePasswordValue === passwordValue) {
             let datas = JSON.parse(localStorage.getItem('Users') || '[]');
             datas.push(setData(usernameValue, emailValue, passwordValue, rePasswordValue));
