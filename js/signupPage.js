@@ -4,6 +4,7 @@ const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const rePassword = document.querySelector('#re-password');
 const showPassword = document.querySelector('#show-password');
+let passwordValidationList = document.querySelector('.password-validation');
 
 showPassword.addEventListener('click', () => {
     if (password.type === 'password') {
@@ -49,6 +50,58 @@ form.addEventListener('submit', (e) => {
         }
     }
 })
+
+password.addEventListener('input', updatePasswordStrengthMeter);
+
+
+
+function updatePasswordStrengthMeter() {
+    const p = password.value;
+    const strengths = [{
+        strengthValue: 25,
+        color: 'red'
+    },
+    {
+        strengthValue: 50,
+        color: 'orange'
+    },
+    {
+        strengthValue: 75,
+        color: 'green'
+    },
+    {
+        strengthValue: 100,
+        color: 'darkgreen'
+    }
+    ];
+    let strengthValue = 0;
+    let strengthColor = '';
+
+    if (p.length >= 8) {
+        strengthValue += 25;
+    }
+
+    if (p.match(/[A-Z]/)) {
+        strengthValue += 25;
+    }
+
+    if (p.match(/[0-9]/)) {
+        strengthValue += 25;
+    }
+
+    if (p.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/)) {
+        strengthValue += 25;
+    }
+
+    for (let i = 0; i < strengths.length; i++) {
+        if (strengthValue >= strengths[i].strengthValue) {
+            strengthColor = strengths[i].color;
+        }
+    }
+
+    passwordValidationList.innerHTML = `<div style="background-color: ${strengthColor}; width: ${strengthValue}%;"></div>`;
+}
+
 
 let setData = (username, email, password, rePassword) => {
     let data = {

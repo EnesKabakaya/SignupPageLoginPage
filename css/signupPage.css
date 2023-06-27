@@ -49,6 +49,7 @@ body {
     flex-direction: column;
     height: auto;
     position: relative;
+    gap: 5px;
 }
 
 .container form .form-control label {
@@ -86,7 +87,7 @@ body {
 .container form .form-control #show-password {
     cursor: pointer;
     position: absolute;
-    top: 25px;
+    top: 30px;
     right: 0px;
     background-color: transparent;
     height: 40px;
@@ -112,6 +113,16 @@ body {
 
 .container form .form-control.success-icon #success-icon {
     visibility: visible;
+}
+
+.container form .form-control .password-validation {
+    width: 100%;
+    height: 10px;
+}
+
+.container form .form-control .password-validation div {
+    height: 100%;
+    border-radius: 5px;
 }
 
 .container form .form-control .send-button {
